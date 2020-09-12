@@ -1,5 +1,5 @@
-import React from 'react';
-import Products from './products';
+import React from "react";
+import Products from "./products";
 
 function App() {
   return (
