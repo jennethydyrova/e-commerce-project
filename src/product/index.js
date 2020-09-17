@@ -1,26 +1,26 @@
 import React from "react";
-
-const product = [
-  {
-    name: "Shoe",
-    description: "Comfy shoe",
-    img: "shoe",
-  },
-  {
-    name: "Hat",
-    description: "Comfy hat",
-    img: "hat",
-  },
-];
-
+// eslint-disable-next-line
 const Product = (props) => {
+  const [likeCount, setCount] = React.useState(0);
+  const [productQuantity, setQuantityCount] = React.useState(props.quantity);
+
   return (
     <>
       <div>
         <h2>{props.name}</h2>
+        <p>{props.description}</p>
+        <img src={props.img} alt="product img" />
       </div>
-
-      <button></button>
+      <div>
+        <p>{likeCount}</p>
+        <button onClick={() => setCount(likeCount + 1)}>Like</button>
+      </div>
+      <div>
+        <p>{productQuantity}</p>
+        <button onClick={() => setQuantityCount(productQuantity - 1)}>
+          Add to cart
+        </button>
+      </div>
     </>
   );
 };
