@@ -1,4 +1,7 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
+
 // eslint-disable-next-line
 const Product = (props) => {
   const [likeCount, setCount] = React.useState(0);
@@ -6,21 +9,33 @@ const Product = (props) => {
 
   return (
     <>
-      <div>
-        <h2>{props.name}</h2>
-        <p>{props.description}</p>
-        <img src={props.img} alt="product img" />
-      </div>
-      <div>
-        <p>{likeCount}</p>
-        <button onClick={() => setCount(likeCount + 1)}>Like</button>
-      </div>
-      <div>
-        <p>{productQuantity}</p>
-        <button onClick={() => setQuantityCount(productQuantity - 1)}>
-          Add to cart
-        </button>
-      </div>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img
+          src={props.img}
+          width="200px"
+          variant="top"
+          alt="product img"
+        />
+
+        <Card.Body>
+          <Card.Title>{props.name}</Card.Title>
+          <Card.Text>{props.description}</Card.Text>
+          <div>
+            <p>{likeCount}</p>
+            <Button variant="primary" onClick={() => setCount(likeCount + 1)}>
+              Like
+            </Button>
+          </div>
+
+          <p>{productQuantity}</p>
+          <Button
+            variant="primary"
+            onClick={() => setQuantityCount(productQuantity - 1)}
+          >
+            Add to cart
+          </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 };

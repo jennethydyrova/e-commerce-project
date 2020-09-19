@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Product from "../product";
-
-const products = [
-  {
-    name: "Shoe",
-    description: "Comfy shoe",
-    img: "shoe",
-    quantity: 50,
-  },
-  {
-    name: "Hat",
-    description: "Comfy hat",
-    img: "hat",
-    quantity: 70,
-  },
-];
+import db from "../firebaseConfig";
 
 const Products = () => {
-  return products.map((product) => (
+  const [productInfo, setProductInfo] = React.useState([]);
+
+  const fetchData = async () => {
+    const res = await db.collection("products").get();
+    const data = res.docs;
+    for (let i = 0; i < data.length; i++) {
+      setProductInfo((prevState) => [...prevState, data[i].data()]);
+      console.log(data[i].data());
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return productInfo.map((product) => (
     <Product
-      name={product.name}
-      description={product.description}
-      img={product.img}
-      quantity={product.quantity}
+      name={product.Name}
+      description={product.Description}
+      img={product.Image}
+      quantity={product.Quantity}
     />
   ));
 };
