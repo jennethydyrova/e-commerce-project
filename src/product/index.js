@@ -20,6 +20,7 @@ const Product = (props) => {
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
           <Card.Text>{props.description}</Card.Text>
+          <Card.Text>{props.price}</Card.Text>
           <div>
             <p>{likeCount}</p>
             <Button variant="primary" onClick={() => setCount(likeCount + 1)}>

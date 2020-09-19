@@ -24,6 +24,7 @@ const Products = () => {
       description={product.Description}
       img={product.Image}
       quantity={product.Quantity}
+      price={product.Price}
     />
   ));
 };
