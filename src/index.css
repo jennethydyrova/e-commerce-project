@@ -11,3 +11,88 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/***** This is for styling main page ****/
+.navStyle {
+  background-color: #fdeff3;;
+  z-index:-2;
+  
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pic1 {
+  position: absolute;
+  z-index: 1;
+  left:-10%;
+  top:15%;
+  width:30%;
+}
+.pic2 {
+  position: absolute;
+  z-index: 5;
+  left:26%;
+  top:2%;
+  width:10%;
+}
+.pic3 {
+  position: absolute;
+  z-index: 1;
+  left:2%;
+  top:35%;
+  width:18%;
+}
+.pic4 {
+  position: absolute;
+  z-index: 2;
+  top:30%;
+  width:19%;
+}
+.pic6 {
+  position: absolute;
+  top:-4%;
+  right:-2%;
+  width:22%;
+}
+.pic7 {
+  position: absolute;
+  top:60%;
+  right:-12%;
+  width:20%;
+}
+.pic8 {
+  position: absolute;
+  top:50%;
+  right:2%;
+  width:18%;
+}
+.pic9 {
+  position: absolute;
+  bottom:10%;
+  right:25%;
+  width:8%;
+
+}
+
+#main-page{
+  height:85vh;
+  justify-content: center;
+  align-content: center;
+  border: solid #b6325b 1px;
+  color:#b6325b;
+  background-color: #fdeff3;
+}
+
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
