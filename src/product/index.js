@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { Button } from "react-bootstrap";
+import { Button, Col} from "react-bootstrap";
 
 // eslint-disable-next-line
 const Product = (props) => {
@@ -8,11 +8,11 @@ const Product = (props) => {
   const [productQuantity, setQuantityCount] = React.useState(props.quantity);
 
   return (
-    <>
-      <Card style={{ width: "18rem" }}>
+    <Col class ="align-items-stretch" lg={{ span: 4 }}>
+      <Card style={{ width: "22rem"  }} > 
         <Card.Img
           src={props.img}
-          width="200px"
+          width="10rem"
           variant="top"
           alt="product img"
         />
@@ -37,7 +37,7 @@ const Product = (props) => {
           </Button>
         </Card.Body>
       </Card>
-    </>
+    </Col>  
   );
 };
 export default Product;
