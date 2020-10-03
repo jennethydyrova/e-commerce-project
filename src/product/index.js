@@ -1,15 +1,28 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { Button, Col} from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
+import addToCart from "../addToCart/index";
 
 // eslint-disable-next-line
 const Product = (props) => {
   const [likeCount, setCount] = React.useState(0);
   const [productQuantity, setQuantityCount] = React.useState(props.quantity);
 
+  const addToCart = () => {
+    return (
+      <addToCart
+        name={props.name}
+        description={props.description}
+        price={props.price}
+      />
+    );
+
+    setQuantityCount(productQuantity - 1);
+  };
+
   return (
-    <Col class ="align-items-stretch" lg={{ span: 4 }}>
-      <Card style={{ width: "22rem"  }} > 
+    <Col class="align-items-stretch" lg={{ span: 4 }}>
+      <Card style={{ width: "22rem" }}>
         <Card.Img
           src={props.img}
           width="10rem"
@@ -29,15 +42,12 @@ const Product = (props) => {
           </div>
 
           <p>{productQuantity}</p>
-          <Button
-            variant="primary"
-            onClick={() => setQuantityCount(productQuantity - 1)}
-          >
+          <Button variant="primary" onClick={() => addToCart()}>
             Add to cart
           </Button>
         </Card.Body>
       </Card>
-    </Col>  
+    </Col>
   );
 };
 export default Product;
