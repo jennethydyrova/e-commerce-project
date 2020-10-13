@@ -11,7 +11,7 @@ import pic9 from "./images/9pic.png";
 import { Container, Row } from "react-bootstrap";
 import Products from "../products";
 
-const MainPage = () => {
+const MainPage = (setCartProducts) => {
   return (
     <div>
       <div class="position-relative overflow-hidden text-center" id="main-page">
@@ -42,7 +42,7 @@ const MainPage = () => {
       </div>
       <Container>
         <Row xs={2} md={4} lg={5}>
-          <Products />
+          <Products setCartProducts={setCartProducts} />
         </Row>
       </Container>
     </div>
