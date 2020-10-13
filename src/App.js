@@ -15,6 +15,7 @@ function App() {
     <Router>
       <div>
         <NavBar />
+        <Switch>
         <Route
           exact
           path="/"
@@ -23,12 +24,11 @@ function App() {
         ></Route>
         <Route path="/about" component={AboutPage}></Route>
         <Route
-          path="/shoppingcart"
+          exact path="/shoppingcart"
           component={AddToCart}
           cartProducts={cartProducts}
         ></Route>
-        <Switch>
-          <Route path="/:id" children={SingleProduct} />
+          <Route exact path="/:id" children={<SingleProduct/>} />
         </Switch>
       </div>
     </Router>

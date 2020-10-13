@@ -7,7 +7,8 @@ import SingleProduct from "../singleProductPage/index.js";
 
 // eslint-disable-next-line
 const Product = (props) => {
-  let { path, url } = useRouteMatch();
+ 
+  
   const [likeCount, setCount] = React.useState(0);
   const [productQuantity, setQuantityCount] = React.useState(props.quantity);
   //console.log(props.id);
@@ -23,7 +24,7 @@ const Product = (props) => {
     // <div>hello</div>
     setQuantityCount(productQuantity - 1);
   };
-  //console.log(props);
+  // console.log(props.id);
 
   const handleClick = (e) => {
     // <Link to="/about"></Link>
@@ -33,7 +34,7 @@ const Product = (props) => {
   return (
     <Col class="align-items-stretch" lg={{ span: 4 }}>
       <Card style={{ width: "22rem" }}>
-        <NavLink  to={`/${props.name}`}>
+      <NavLink  to={`/${props.id}`}>
           <Card.Img
             src={props.img}
             width="10rem"
@@ -59,9 +60,11 @@ const Product = (props) => {
           </Button>
         </Card.Body>
       </Card>
-      {/* 
-      <SingleProduct props={props} /> */}
+      
+      {/* <SingleProduct props={props.name} /> */}
     </Col>
   );
+
+
 };
 export default Product;
