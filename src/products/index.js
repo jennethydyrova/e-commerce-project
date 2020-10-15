@@ -9,7 +9,7 @@ const Products = (setCartProducts) => {
     const res = await db.collection("products").get();
     const data = res.docs;
     for (let i = 0; i < data.length; i++) {
-      setProductInfo((prevState) => [...prevState, data[i].data()]);
+      setProductInfo((prevState) => [...prevState,{...data[i].data(), id: data[i].id}]);
       // console.log(data[i].data());
     }
   };
@@ -26,6 +26,7 @@ const Products = (setCartProducts) => {
       quantity={product.Quantity}
       price={product.Price}
       setCartProducts={setCartProducts}
+      id={product.id}
     />
   ));
 };

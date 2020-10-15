@@ -8,43 +8,61 @@ import {
 } from "react-router-dom";
 
 const SingleProduct = () => {
-  //const [productInfo, setProductInfo] = React.useState([]);
+
+
+ const [productInfo, setProductInfo] = React.useState([]);
 
   let { id } = useParams();
   
+   
+  const fetchData = async () => {
+    const res = await db.collection("products").doc(id).get();
+    const data = res.data();
+   // console.log(data)
+   return setProductInfo(data)
+  };
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // const fetchData = async () => {
-  //   const res = await db.collection("products").get();
-  //   const data = res.docs;
+  // const [productQuantity, setQuantityCount] = useState(productInfo.Quantity);
 
-  //   // for (let i = 0; i < data.length; i++) {
-  //   //   setProductInfo((prevState) => [...prevState, data[i].data()]);
-  //   //   console.log(data[i].data());
-  //   // }
-  // };
+  
+  // console.log(productQuantity);
+  const addToCart = () => {
+   //console.log('hello')
+   console.log("hello");
+  //  console.log(productQuantity - 1)
+  //   setQuantityCount(productQuantity - 1);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
-  //console.log(props);
+  }
+  
+  
+
+  
   return (
-    <p>hello id: {id}</p>
-    // <Col class="align-items-stretch" lg={{ span: 4 }}>
-    //   <Card style={{ width: "22rem" }}>
-    //     {/* <Card.Img
-    //       src={props.img}
-    //       width="10rem"
-    //       variant="top"
-    //       alt="product img"
-    //     /> */}
-    //     <Card.Body>
-    //       <Card.Title>{props.name}</Card.Title>
-    //       <Card.Text>{props.description}</Card.Text>
-    //       <Card.Text>{props.price}</Card.Text>
-    //     </Card.Body>
-    //   </Card>
-    // </Col>
+    <Col class="align-items-stretch" lg={{ span: 4 }}>
+      <Card style={{ width: "22rem" }}>
+        <Card.Img
+          src={productInfo.Image}
+          width="10rem"
+          variant="top"
+          alt="product img"
+        />
+        <Card.Body>
+          <Card.Title>{productInfo.Name}</Card.Title>
+          <Card.Text>{productInfo.Description}</Card.Text>
+          <Card.Text>{productInfo.Price}</Card.Text>
+          {/* <p>{productQuantity}</p> */}
+        </Card.Body>
+        <Button variant="primary" onClick={(e) => addToCart(e)
+        }>
+            Add to cart
+          </Button>
+      </Card>
+    </Col>
   );
 };
 
